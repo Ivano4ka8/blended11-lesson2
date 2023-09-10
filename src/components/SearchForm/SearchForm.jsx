@@ -9,7 +9,7 @@ export class SearchForm extends Component {
   };
 
   handleInput = e => {
-    this.setState({ query: e.target.value.toLowerCase().trim() });
+    this.setState({ query: e.target.value.toLowerCase() });
   };
 
   handleSubmit = e => {
