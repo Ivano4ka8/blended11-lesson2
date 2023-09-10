@@ -7,6 +7,7 @@ export class Gallery extends Component {
   render() {
     return (
       <>
+        <SearchForm />
         <Text textAlign="center">Sorry. There are no images ... 😭</Text>
       </>
     );
