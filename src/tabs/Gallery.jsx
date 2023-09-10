@@ -52,10 +52,27 @@ export class Gallery extends Component {
   };
 
   render() {
+    const { images, error, isEmpty, isVisible, isLoading } = this.state;
     return (
       <>
         <SearchForm onSubmit={this.onHandleSubmit} />
-        <Text textAlign="center">Sorry. There are no images ... 😭</Text>
+        {error && (
+          <Text textAlign="center">❌ Something went wrong - {error}</Text>
+        )}
+        {isEmpty && (
+          <Text textAlign="center">Sorry. There are no images ... 😭</Text>
+        )}
+        {images.length > 0 && (
+          <Grid>
+            {images.map(({ id, avg_color, alt, src }) => (
+              <GridItem key={id}>
+                <CardItem color={avg_color}>
+                  <img src={src.large} alt={alt} />
+                </CardItem>
+              </GridItem>
+            ))}
+          </Grid>
+        )}
       </>
     );
   }
